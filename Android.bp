@@ -1,0 +1,32 @@
+package {
+    default_applicable_licenses: ["linux_msm_rmtfs_license"],
+}
+
+license {
+    name: "linux_msm_rmtfs_license",
+    license_kinds: ["SPDX-license-identifier-BSD-3-Clause"],
+    license_text: ["LICENSE"],
+}
+
+// Install this file and rmtfs.rc at external/linux-msm/rmtfs/, next to the
+// pinned linux-msm/rmtfs source.
+cc_binary {
+    name: "rmtfs",
+    vendor: true,
+    srcs: [
+        "qmi_rmtfs.c",
+        "rmtfs.c",
+        "rproc.c",
+        "sharedmem.c",
+        "storage.c",
+        "util.c",
+    ],
+    init_rc: ["rmtfs.rc"],
+    shared_libs: ["libqrtr"],
+    system_shared_libs: ["libc"],
+    cflags: [
+        "-DANDROID",
+        "-Wall",
+        "-Wno-error",
+    ],
+}

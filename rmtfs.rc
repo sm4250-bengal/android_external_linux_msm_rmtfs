@@ -1,0 +1,37 @@
+# rmtfs -- QMI service 14, the modem's remote EFS. Phase 4f.
+# Installed beside the binary by external/linux-msm/rmtfs/Android.bp `init_rc:`;
+# source overlay platform/upstream-ports/rmtfs/. Plan and tells:
+# docs/research/2026-09-02-wifi-flight-plan.md §3.4, §3.7.
+#
+# The firmware_class path must be set before any remoteproc firmware request.
+# init.bengal3.rc carries the same idempotent write for the complete product;
+# keeping it here makes the stack's ordering requirement explicit.
+on early-init
+    write /sys/module/firmware_class/parameters/path /vendor/firmware
+
+# ORDER. class late_start starts at `on nonencrypted` (init.rc:1288-1290; the
+# bengal3 fstab has no fileencryption), after late-fs's synchronous
+# `exec_start vendor.bengal3.modprobe` -- so qrtr.ko, rmtfs_mem.ko
+# (/dev/qcom_rmtfs_mem1, client-id 1) and the modem remoteproc all exist.
+# The modem is NOT started here and not by this daemon (no -s): init.bengal3.rc
+# starts vendor.bengal3.modemctl once this service AND vendor.tqftpserv are
+# `running`; that controller writes recovery=disabled before state=start and
+# refuses a second boot in the session. (The earlier
+# `vendor.bengal3.modem_pas.ready=1` gate had no producer -- 4f ports doc §4.)
+#
+# -r  READ-ONLY EFS for the first flight: partitions opened O_RDONLY and served
+#     from a RAM shadow; the modem's writes are coherent for the session and
+#     dropped at power-off (rmtfs storage.c). This is the exact configuration of
+#     the nine wlan0 boots D3-0034..0047 (3 EFS reads, 0 writes). Dropping -r --
+#     what the OEM's rmt_storage and every shipping mainline board do -- is a
+#     later single-variable flight with its own tells (`[RMTFS] write` lines).
+# -P  partitions by name under -o: /dev/block/by-name/{modemst1,modemst2,fsg,fsc}
+#     (ueventd creates the by-name links for androidboot.boot_devices; the
+#     labels are sepolicy/vendor/file_contexts).
+# -v  dbgprintf: `[RMTFS] open /boot/modem_fs1 => 0` is the tell that the modem
+#     opened its EFS; stdio_to_kmsg puts it in kmsg (init/README.md:406).
+service vendor.rmtfs /vendor/bin/rmtfs -r -P -o /dev/block/by-name -v
+    class late_start
+    user root
+    group root
+    stdio_to_kmsg

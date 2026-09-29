@@ -1,0 +1,108 @@
+{
+  "commit": "b30a3eb38f9af283f18dbd3c7755653efc52c094",
+  "excluded_symlinks": [],
+  "overlays": {
+    "Android.bp": {
+      "bytes": 692,
+      "sha256": "f7235fa3c2fa715f42b427f4e0c3167dc178a40579a4df4de2b7a95211015f3b"
+    },
+    "rmtfs.rc": {
+      "bytes": 2207,
+      "sha256": "7df4f5b28dc2fa91294944feb5d567a82203229733ed270ba69e814a4fd4cadd"
+    }
+  },
+  "upstream": {
+    ".gitignore": {
+      "bytes": 24,
+      "mode": "100644",
+      "sha256": "eb0f729d4208bec8f466a55f2eb1454673772c278ae1ed2dcd772363446413c4"
+    },
+    "Android.bp": {
+      "bytes": 223,
+      "mode": "100644",
+      "sha256": "fcc79d2af2456139b719695e3794f73cfa702470f3570dd2a922a0f39000cb5a"
+    },
+    "LICENSE": {
+      "bytes": 1496,
+      "mode": "100644",
+      "sha256": "1e1e2972bd05841b6a009bd6f7aef9d847f9a2b721d1a308340e642faa2482cd"
+    },
+    "Makefile": {
+      "bytes": 910,
+      "mode": "100644",
+      "sha256": "610b052a0008ab2c58655666cfba332e6075ea2072290994a1ac246629172d5d"
+    },
+    "qmi_rmtfs.c": {
+      "bytes": 5718,
+      "mode": "100644",
+      "sha256": "fdac6b8eef0c18cb93a4242f1b1acc811ce3bf207caa2fc201fdb97c25cef35d"
+    },
+    "qmi_rmtfs.h": {
+      "bytes": 2132,
+      "mode": "100644",
+      "sha256": "cef8fe7a4e930f4c756d15f4db4d9b2dbdef275f51a696e1f909f8b8be036e13"
+    },
+    "qmi_rmtfs.qmi": {
+      "bytes": 1405,
+      "mode": "100644",
+      "sha256": "d02cc77f0a0138bee4a54d11c44150c5adb53a02ad083b6e4d3e4ed17587f2fa"
+    },
+    "qmi_tlv.c": {
+      "bytes": 4059,
+      "mode": "100644",
+      "sha256": "7276492f89a9f81eca823749b36408f7604033b92746751bcde282e087a0295e"
+    },
+    "rmtfs-dir.service.in": {
+      "bytes": 200,
+      "mode": "100644",
+      "sha256": "68e38e94724b6566176612e09aa5f498b1ce5840443e99f30a0d43d8fba84d79"
+    },
+    "rmtfs.c": {
+      "bytes": 13494,
+      "mode": "100644",
+      "sha256": "ff99083eb0d8bdd84a42306fcb1e357e87be9e49b45f607493df99c9f3b42f7b"
+    },
+    "rmtfs.h": {
+      "bytes": 1442,
+      "mode": "100644",
+      "sha256": "cc03980f1c217359e8a09dab48f82c4f33dbecd704912acde52a5e2f5dd5abc9"
+    },
+    "rmtfs.rules": {
+      "bytes": 584,
+      "mode": "100644",
+      "sha256": "0bc157af2e85ea7648eb4f3a2f74191527e8b4e0b6e7e8656440f8fa53439194"
+    },
+    "rmtfs.service.in": {
+      "bytes": 229,
+      "mode": "100644",
+      "sha256": "d264c802b5faa5bf36aad731c6f785ea7510cff2743c9b9696623134c14e7cc0"
+    },
+    "rproc.c": {
+      "bytes": 4640,
+      "mode": "100644",
+      "sha256": "62b4ecc78b1fcf7adc83bebf1852b248911219af1e7c25627e26752665b1e1cd"
+    },
+    "sharedmem.c": {
+      "bytes": 9585,
+      "mode": "100644",
+      "sha256": "8919421c90578f8bcd8093231c599678ebca0d28ed82ffc460eefe07d3dfd5f7"
+    },
+    "storage.c": {
+      "bytes": 6534,
+      "mode": "100644",
+      "sha256": "7d69325b8e035af2682d6bfed8dcfabaf083a9e33a749614dbb57f79eda852e7"
+    },
+    "util.c": {
+      "bytes": 830,
+      "mode": "100644",
+      "sha256": "901a9d4794e47f77800f14cbc290ed99eedd5704be5e082b6fc42cd143b683b7"
+    },
+    "util.h": {
+      "bytes": 202,
+      "mode": "100644",
+      "sha256": "5c944e00982225a2b20df8100a5c7ca7f7615d701d0de20a856aa09df771cbf7"
+    }
+  },
+  "url": "https://github.com/linux-msm/rmtfs.git",
+  "publisher_omissions": []
+}
